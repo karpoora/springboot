@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+      path: /console
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+
+security:
+  basic:
+    enabled: false
+  ignored:
+    - console/**
+    - health
+
+
+server:
+  port: 8088
+
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+
