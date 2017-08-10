@@ -1,3 +1,6 @@
+server:
+  port: 8083
+
 spring:
   jpa:
     generate-ddl: true
@@ -11,6 +14,11 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
+  boot:
+    admin:
+      url: http://localhost:8082
+  application:
+    name: LearnSpringBoot
 
 security:
   basic:
@@ -19,12 +27,6 @@ security:
     - console/**
     - health
 
-
-server:
-  port: 8088
-
-endpoints:
-  actuator:
-    enabled: true
-    sensitive: false
-
+management:
+  security:
+    enabled: false

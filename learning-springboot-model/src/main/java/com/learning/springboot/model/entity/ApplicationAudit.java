@@ -1,4 +1,4 @@
-package com.pandian.learning.springboot.model;
+package com.learning.springboot.model.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,9 +12,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-/**
- * Created by khjg232 on 27/11/2016.
- */
 @MappedSuperclass
 @Data
 public class ApplicationAudit implements Serializable {

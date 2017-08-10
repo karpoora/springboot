@@ -6,7 +6,7 @@
     <artifactId>learning-springboot-model</artifactId>
     <parent>
         <artifactId>learning-springboot</artifactId>
-        <groupId>com.pandian.learning.springboot</groupId>
+        <groupId>com.learning.springboot</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
