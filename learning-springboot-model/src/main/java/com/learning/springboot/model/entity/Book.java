@@ -21,6 +21,6 @@ public class Book extends ApplicationAudit{
     private String isbn;
     private Author author;
     private BookType bookType;
-    private boolean isAvailable;
+    private boolean isAvailable = true;
     private Integer pages;
 }
