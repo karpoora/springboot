@@ -38,4 +38,10 @@ public class BookServiceImpl implements BookService {
         bookRepository.save(books);
         return LibraryUtil.SAVED;
     }
+
+    @Override
+    public String deleteBook(Book book) {
+        bookRepository.delete(book);
+        return LibraryUtil.DELETED;
+    }
 }

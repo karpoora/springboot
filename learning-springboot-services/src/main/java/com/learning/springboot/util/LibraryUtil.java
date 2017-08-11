@@ -6,4 +6,5 @@ package com.learning.springboot.util;
 public class LibraryUtil {
     public static final String SAVED = "Successfully Saved";
     public static final String MODIFIED = "Successfully Modified";
+    public static final String DELETED = "Successfully Deleted";
 }

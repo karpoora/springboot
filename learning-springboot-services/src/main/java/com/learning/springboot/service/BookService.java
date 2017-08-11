@@ -11,4 +11,5 @@ public interface BookService {
     String editBook(Book book);
     List<Book> getBooks();
     String addBooks(List<Book> books);
+    String deleteBook(Book book);
 }
