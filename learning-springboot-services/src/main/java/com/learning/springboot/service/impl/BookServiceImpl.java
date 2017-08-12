@@ -34,14 +34,19 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book getBook(Long id) {
+        return bookRepository.findOne(id);
+    }
+
+    @Override
     public String addBooks(List<Book> books) {
         bookRepository.save(books);
         return LibraryUtil.SAVED;
     }
 
     @Override
-    public String deleteBook(Book book) {
-        bookRepository.delete(book);
+    public String deleteBook(Long id) {
+        bookRepository.delete(id);
         return LibraryUtil.DELETED;
     }
 }
