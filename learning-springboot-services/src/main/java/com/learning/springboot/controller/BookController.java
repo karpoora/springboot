@@ -2,7 +2,12 @@ package com.learning.springboot.controller;
 
 import com.learning.springboot.model.entity.Book;
 import com.learning.springboot.service.BookService;
+import java.util.ArrayList;
 import java.util.List;
+import org.springframework.batch.core.JobParametersInvalidException;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,7 +36,7 @@ public class BookController {
 
     @PostMapping(path = "add-books")
     @PreAuthorize("hasAuthority('RAT-Admin')")
-    public String addBooks(@RequestBody List<Book> books) {
+    public String addBooks(@RequestBody ArrayList<Book> books) throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
         return bookService.addBooks(books);
     }
 
@@ -49,19 +54,19 @@ public class BookController {
 
     @GetMapping(path = "book/{id}")
     @PreAuthorize("hasAuthority('RAT-Admin')")
-    public Book getBook(@PathVariable("id") Long id){
+    public Book getBook(@PathVariable("id") Long id) {
         return bookService.getBook(id);
     }
 
     @GetMapping(path = "all-books")
     @PreAuthorize("hasAuthority('RAT-Admin')")
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return bookService.getBooks();
     }
 
     @DeleteMapping(path = "delete/{id}")
     @PreAuthorize("hasAuthority('RAT-Admin')")
-    public String deleteBook(@PathVariable Long id){
+    public String deleteBook(@PathVariable Long id) {
         return bookService.deleteBook(id);
     }
 }
