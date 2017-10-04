@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" version="2.1">
+    <!--
+    <jaxb:bindings schemaLocation="mdsol-extension.xsd">
+        <jaxb:bindings node="//xs:redefine/xs:group[@name='ProtocolElementExtension']/xs:sequence/xs:group[@ref='ProtocolElementContents']">
+            <jaxb:factoryMethod name="MDSOL_Redefine_ProtocolElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:redefine/xs:group[@name='StudyEventDefElementExtension']/xs:sequence/xs:group[@ref='StudyEventDefElementContents']">
+            <jaxb:factoryMethod name="MDSOL_Redefine_StudyEventDefElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='ProtocolElementContents']">
+            <jaxb:factoryMethod name="MDSOL_ProtocolElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='StudyEventDefElementContents']">
+            <jaxb:factoryMethod name="MDSOL_StudyEventDefElementContents"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    -->
+
+
+    <jaxb:bindings schemaLocation="mdsol-ns.xsd">
+        <jaxb:bindings node="//xs:element[@name='Comment']">
+            <jaxb:factoryMethod name="MDSOL_Comment"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings schemaLocation="ODM1-3-1-foundation.xsd">
+        <jaxb:bindings node="//xs:element[@name='Comment']">
+            <jaxb:factoryMethod name="ODM_Comment"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='Signature']">
+            <jaxb:factoryMethod name="ODM_Signature"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings schemaLocation="xmldsig-core-schema.xsd">
+        <jaxb:bindings node="//xs:element[@name='Signature']">
+            <jaxb:factoryMethod name="XMLDSIG_Signature"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <!--
+    <jaxb:bindings schemaLocation="sdm-extension.xsd">
+        <jaxb:bindings node="//xs:redefine/xs:group[@name='ProtocolElementExtension']/xs:sequence/xs:group[@ref='ProtocolElementContents']">
+            <jaxb:factoryMethod name="SDM_Redefine_ProtocolElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:redefine/xs:group[@name='StudyEventDefElementExtension']/xs:sequence/xs:group[@ref='StudyEventDefElementContents']">
+            <jaxb:factoryMethod name="SDM_Redefine_StudyEventDefElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='ProtocolElementContents']">
+            <jaxb:factoryMethod name="SDM_ProtocolElementContents"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:group[@name='StudyEventDefElementContents']">
+            <jaxb:factoryMethod name="SDM_StudyEventDefElementContentss"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    -->
+</jaxb:bindings>

@@ -2,11 +2,12 @@ package com.learning.springboot.model.entity;
 
 import com.learning.springboot.model.BookType;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import lombok.Data;
 
 /**
@@ -15,18 +16,19 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Book extends ApplicationAudit{
+public class Book{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
     private String name;
     private String isbn;
-    private Author author;
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Author> author;
     private BookType bookType;
     private boolean isAvailable = true;
     private Integer pages;
     private Integer rating;
-    @OneToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private List<Comment> comments;
 
 }

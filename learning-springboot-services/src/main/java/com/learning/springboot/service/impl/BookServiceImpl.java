@@ -6,9 +6,8 @@ import com.learning.springboot.service.BookService;
 import com.learning.springboot.util.LibraryUtil;
 import java.util.ArrayList;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobExecution;
-import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
@@ -38,6 +37,7 @@ public class BookServiceImpl implements BookService {
     BookRepository bookRepository;
 
     @Override
+    @Transactional
     public String addBook(Book book) {
         bookRepository.save(book);
         return LibraryUtil.SAVED;
@@ -61,13 +61,13 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public String addBooks(ArrayList<Book> books) throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
-//        System.out.println(System.currentTimeMillis());
-//        bookRepository.save(books);
-//        System.out.println(System.currentTimeMillis());
+        System.out.println(System.currentTimeMillis());
+        bookRepository.save(books);
+        System.out.println(System.currentTimeMillis());
 
-        bookList=books;
-        JobParametersBuilder jobParameterBuilder = new JobParametersBuilder();
-        JobExecution jobExecution = jobLauncher.run(bookBatchJob, jobParameterBuilder.toJobParameters());
+//        bookList=books;
+//        JobParametersBuilder jobParameterBuilder = new JobParametersBuilder();
+//        JobExecution jobExecution = jobLauncher.run(bookBatchJob, jobParameterBuilder.toJobParameters());
         return LibraryUtil.SAVED;
     }
 

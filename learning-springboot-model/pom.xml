@@ -16,11 +16,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.astrazeneca.als.security</groupId>
-            <artifactId>als-security-oauth2</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
-        </dependency>
         <!--DB related-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,9 +30,41 @@
             <artifactId>spring-hateoas</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-            <version>1.10.4.RELEASE</version>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>4.2.3.RELEASE</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.13.1</version>
+                <executions>
+                    <execution>
+                        <id>xds-to-java-odm</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <schemaDirectory>src/main/resources/ODM1.3.1</schemaDirectory>
+                            <schemaIncludes>
+                                <include>ODM1-3-1.xsd</include>
+                                <include>mdsol.xsd</include>
+                                <include>mdsol-extension.xsd</include>
+                            </schemaIncludes>
+                            <bindingDirectory>src/main/resources/ODM1.3.1</bindingDirectory>
+                            <bindingIncludes>
+                                <include>bindings.xjb</include>
+                            </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-resources</generateDirectory>
+                            <generatePackage>com.learning.springboot.model.clinicalstudy</generatePackage>
+                            <!--  Other configuration options-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

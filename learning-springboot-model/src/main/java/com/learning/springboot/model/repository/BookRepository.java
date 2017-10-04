@@ -10,3 +10,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book,Long> {
 }
+
+// Pagination Repository
+// Sorting Repository
+// Auditing
+// JPQL
+// Criteria Query
+// Named Query
+// QueryDSL
+// Different DataSources

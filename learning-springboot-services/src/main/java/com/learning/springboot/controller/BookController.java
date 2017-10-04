@@ -70,3 +70,12 @@ public class BookController {
         return bookService.deleteBook(id);
     }
 }
+
+
+// PostMapping
+// PutMapping
+// GetMapping
+// DeleteMapping
+// PatchMapping
+// Restcontroller
+// RepositoryRestResource

@@ -25,6 +25,12 @@ spring:
   batch:
     job:
       enabled: false
+  data:
+    mongodb:
+      database: clinicalStudyDB
+      port: 27017
+      host: localhost
+
 security:
   basic:
     enabled: false

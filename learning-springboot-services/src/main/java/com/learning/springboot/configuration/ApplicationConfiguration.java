@@ -74,5 +74,15 @@ public class ApplicationConfiguration {
                 .paths(PathSelectors.any())
                 .build();
     }
-
 }
+
+
+//  Job
+//  Flow
+//  Step
+//  Read
+//  Process
+//  Write
+//  Parallel Steps
+//      Partitioning
+//  Restartable

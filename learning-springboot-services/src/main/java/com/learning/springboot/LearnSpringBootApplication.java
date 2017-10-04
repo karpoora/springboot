@@ -17,3 +17,27 @@ public class LearnSpringBootApplication {
         SpringApplication.run(LearnSpringBootApplication.class, args);
     }
 }
+
+
+// Async execution
+// CommandLine execution
+// Application Runner
+// ThreadPool Execution
+// AOP
+// Cache
+// Batch
+// Scheduler
+// Log4J2
+// Logback-spring
+// GlobalException Handler
+// Abstract RestHandler
+// Auditing - AuditApplicationEvent, ServiceEvent
+// ApplicationListener, ServiceListener
+// EventPublisher
+// Service Versioning in controller
+// @Enable-config-service - centralized configuration
+// Eureka
+// mail
+// spring-integration
+// kafka
+// client load balancing - Ribbon
