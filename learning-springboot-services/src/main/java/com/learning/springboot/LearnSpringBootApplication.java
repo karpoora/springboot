@@ -22,7 +22,7 @@ public class LearnSpringBootApplication {
         SpringApplication.run(LearnSpringBootApplication.class, args);
     }
 
-    // faster spring boot startup in local environment
+    // faster spring boot startup in local environment  ************
     // It enables lazyInit which helps in faster application startup in Local profile
     @Configuration
     @Profile("local")
@@ -41,7 +41,6 @@ public class LearnSpringBootApplication {
 // Logback-spring
 // GlobalException Handler
 // Abstract RestHandler
-// faster spring boot startup in local environment
 // Auditing - AuditApplicationEvent, ServiceEvent
 // ApplicationListener, ServiceListener
 // EventPublisher
@@ -50,7 +49,6 @@ public class LearnSpringBootApplication {
 // service Registry and Discovery - Eureka
 // circuit breaker - Hystrix.
 // mail
-// spring-integration
 // kafka
 // client load balancing - Ribbon or Feign
 // social - facebook,twitter

@@ -1,0 +1,43 @@
+server:
+  port: 8083
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /console
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 100
+  boot:
+    admin:
+      url: http://localhost:8082
+  application:
+    name: LearnSpringBoot
+  batch:
+    job:
+      enabled: false
+  data:
+    mongodb:
+      database: clinicalStudyDB
+      port: 27017
+      host: localhost
+
+security:
+  basic:
+    enabled: false
+  ignored:
+    - console/**
+    - health
+
+management:
+  security:
+    enabled: false
