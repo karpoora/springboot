@@ -20,8 +20,6 @@ spring:
   boot:
     admin:
       url: http://localhost:8082
-  application:
-    name: LearnSpringBoot
   batch:
     job:
       enabled: false

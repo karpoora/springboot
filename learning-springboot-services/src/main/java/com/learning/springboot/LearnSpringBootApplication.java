@@ -4,9 +4,7 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Created by krvh271 on 7/28/17.
@@ -15,6 +13,7 @@ import org.springframework.context.annotation.Profile;
 @SpringBootApplication
 @EnableBatchProcessing
 @EnableEurekaClient
+@EnableScheduling
 //@EnableAZSSO
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class LearnSpringBootApplication {
@@ -22,14 +21,18 @@ public class LearnSpringBootApplication {
         SpringApplication.run(LearnSpringBootApplication.class, args);
     }
 
-    // faster spring boot startup in local environment  ************
-    // It enables lazyInit which helps in faster application startup in Local profile
-    @Configuration
-    @Profile("local")
-    @ComponentScan(lazyInit = true)
-    static class LocalConfig {
-    }
+//     faster spring boot startup in local environment  ************
+//     It enables lazyInit which helps in faster application startup in Local profile
+
+//     @Configuration
+//     @Profile("local")
+//     @ComponentScan(lazyInit = true)
+//     static class LocalConfig {
+//     }
+
 }
+
+
 // Async execution
 // CommandLine execution
 // Application Runner
@@ -46,9 +49,13 @@ public class LearnSpringBootApplication {
 // EventPublisher
 // Service Versioning in controller - backward compatibility
 // @Enable-config-service - centralized configuration - vault or git
+// spring cloud trace
 // service Registry and Discovery - Eureka
 // circuit breaker - Hystrix.
 // mail
 // kafka
 // client load balancing - Ribbon or Feign
 // social - facebook,twitter
+// bootstrap yml/properties
+// @JsonManagedReference
+// @JsonBackReference

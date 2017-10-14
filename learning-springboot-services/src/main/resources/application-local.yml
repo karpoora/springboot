@@ -20,8 +20,6 @@ spring:
   boot:
     admin:
       url: http://localhost:8082
-  application:
-    name: LearnSpringBoot
   batch:
     job:
       enabled: false
@@ -41,3 +39,8 @@ security:
 management:
   security:
     enabled: false
+
+application:
+  scheduler:
+    cron: 2 * * * * ?
+    initialDelay: 60000

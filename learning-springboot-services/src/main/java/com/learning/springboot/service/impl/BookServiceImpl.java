@@ -2,6 +2,7 @@ package com.learning.springboot.service.impl;
 
 import com.learning.springboot.model.entity.Book;
 import com.learning.springboot.model.repository.BookRepository;
+import com.learning.springboot.model.repository.custom.DefaultBulkOperations;
 import com.learning.springboot.service.BookService;
 import com.learning.springboot.util.LibraryUtil;
 import java.util.ArrayList;
@@ -36,6 +37,10 @@ public class BookServiceImpl implements BookService {
     @Autowired
     BookRepository bookRepository;
 
+
+    @Autowired
+    DefaultBulkOperations defaultBulkOperations;
+
     @Override
     @Transactional
     public String addBook(Book book) {
@@ -62,7 +67,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public String addBooks(ArrayList<Book> books) throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
         System.out.println(System.currentTimeMillis());
-        bookRepository.save(books);
+//        bookRepository.save(books);
+//        jdbcTemplateBulkOperations.bulkPersist(books);
+//        statelessSessionBulkOperations.bulkPersist(books);
+        defaultBulkOperations.bulkPersist(books);
         System.out.println(System.currentTimeMillis());
 
 //        bookList=books;
