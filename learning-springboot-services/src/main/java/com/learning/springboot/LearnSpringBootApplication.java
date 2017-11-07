@@ -39,23 +39,26 @@ public class LearnSpringBootApplication {
 // ThreadPool Execution
 // AOP
 // Cache
-// Scheduler
+// Scheduler  *********************
+// Spring Config Server *****************
 // Log4J2
 // Logback-spring
+// logInterceptor
 // GlobalException Handler
 // Abstract RestHandler
 // Auditing - AuditApplicationEvent, ServiceEvent
 // ApplicationListener, ServiceListener
 // EventPublisher
 // Service Versioning in controller - backward compatibility
-// @Enable-config-service - centralized configuration - vault or git
-// spring cloud trace
+// spring cloud trace - Sleuth / Zipkin
 // service Registry and Discovery - Eureka
 // circuit breaker - Hystrix.
 // mail
 // kafka
+// Gateway API
+// SSO security microservice annotation
 // client load balancing - Ribbon or Feign
 // social - facebook,twitter
-// bootstrap yml/properties
-// @JsonManagedReference
-// @JsonBackReference
+// unit test and integration test
+// Docker container deployment
+// maven snapshot/release in branch and master
