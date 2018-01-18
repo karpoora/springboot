@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8085
 
 spring:
   jpa:
@@ -17,19 +17,19 @@ spring:
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 100
-  boot:
-    admin:
-      url: http://localhost:8082
+#  boot:
+#    admin:
+#      url: http://localhost:8082
   application:
     name: LearnSpringBoot
   batch:
     job:
       enabled: false
-  data:
-    mongodb:
-      database: clinicalStudyDB
-      port: 27017
-      host: localhost
+#  data:
+#    mongodb:
+#      database: clinicalStudyDB
+#      port: 27017
+#      host: localhost
 
 security:
   basic:

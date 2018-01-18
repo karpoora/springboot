@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="com.learning.springboot.SpringBootJSON">
+				<application>learning-springboot</application>
+			</layout>
+		</encoder>
+	</appender>
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+	<property name="LOG_FILE" value="/data/springBoot/log/springBoot.log"/>
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+	<!--<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+		<!--<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">-->
+			<!--<layout class="com.learning.springboot.SpringBootJSON">-->
+				<!--<application>learning-springboot</application>-->
+			<!--</layout>-->
+		<!--</encoder>-->
+		<!--<file>${LOG_FILE}</file>-->
+		<!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+			<!--<fileNamePattern>${LOG_FILE}.%i</fileNamePattern>-->
+			<!--<minIndex>1</minIndex>-->
+			<!--<maxIndex>10</maxIndex>-->
+		<!--</rollingPolicy>-->
+		<!--<triggeringPolicy-->
+				<!--class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+			<!--<MaxFileSize>50KB</MaxFileSize>-->
+		<!--</triggeringPolicy>-->
+	<!--</appender>-->
+
+	<appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
+		<url>http://localhost:9200/_bulk</url>
+		<index>learnSpringBoot</index>
+		<type>tester</type>
+		<loggerName>es-logger</loggerName> <!-- optional -->
+		<errorLoggerName>es-error-logger</errorLoggerName> <!-- optional -->
+		<connectTimeout>30000</connectTimeout> <!-- optional (in ms, default 30000) -->
+		<errorsToStderr>false</errorsToStderr> <!-- optional (default false) -->
+		<includeCallerData>false</includeCallerData> <!-- optional (default false) -->
+		<logsToStderr>false</logsToStderr> <!-- optional (default false) -->
+		<maxQueueSize>104857600</maxQueueSize> <!-- optional (default 104857600) -->
+		<maxRetries>3</maxRetries> <!-- optional (default 3) -->
+		<readTimeout>30000</readTimeout> <!-- optional (in ms, default 30000) -->
+		<sleepTime>250</sleepTime> <!-- optional (in ms, default 250) -->
+		<rawJsonMessage>false</rawJsonMessage> <!-- optional (default false) -->
+		<includeMdc>false</includeMdc> <!-- optional (default false) -->
+		<maxMessageSize>100</maxMessageSize> <!-- optional (default -1 -->
+		<properties>
+			<property>
+				<name>host</name>
+				<value>${HOSTNAME}</value>
+				<allowEmpty>false</allowEmpty>
+			</property>
+			<property>
+				<name>severity</name>
+				<value>%level</value>
+			</property>
+			<property>
+				<name>thread</name>
+				<value>%thread</value>
+			</property>
+			<property>
+				<name>stacktrace</name>
+				<value>%ex</value>
+			</property>
+			<property>
+				<name>logger</name>
+				<value>%logger</value>
+			</property>
+		</properties>
+		<headers>
+			<header>
+				<name>Content-Type</name>
+				<value>text/plain</value>
+			</header>
+		</headers>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<!--<appender-ref ref="FILE"/>-->
+		<appender-ref ref="ELASTIC"/>
+	</root>
+
+	<!--<logger name="es-error-logger" level="INFO" additivity="false">-->
+		<!--<appender-ref ref="ELASTIC" />-->
+	<!--</logger>-->
+
+	<!--<logger name="es-logger" level="INFO" additivity="false">-->
+		<!--<appender name="ES_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+			<!--&lt;!&ndash; ... &ndash;&gt;-->
+			<!--<encoder>-->
+				<!--<pattern>%msg</pattern> &lt;!&ndash; This pattern is important, otherwise it won't be the raw Elasticsearch format anyomre &ndash;&gt;-->
+			<!--</encoder>-->
+		<!--</appender>-->
+	<!--</logger>-->
+</configuration>
